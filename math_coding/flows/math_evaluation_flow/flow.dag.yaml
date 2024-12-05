@@ -8,8 +8,11 @@ inputs:
     default: "2"
 outputs:
   score:
-    type: string
+    type: integer
     reference: ${line_process.output}
+  metrics:
+    type: object
+    reference: ${aggregate.output}
 nodes:
 - name: line_process
   type: python
