@@ -6,7 +6,7 @@ connections:
   connection_type: AzureOpenAIConnection
   api_base: https://edge-10x-ai-services.cognitiveservices.azure.com
   api_version: 2023-07-01-preview
-  api_key: ${api_key}
+  api_key: ${AZURE_OPENAI_API_KEY}
   api_type: azure
 
 datasets:
