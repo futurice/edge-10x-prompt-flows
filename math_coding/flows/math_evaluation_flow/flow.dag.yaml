@@ -8,7 +8,7 @@ inputs:
     default: "2"
 outputs:
   score:
-    type: integer
+    type: string
     reference: ${line_process.output}
   metrics:
     type: object
