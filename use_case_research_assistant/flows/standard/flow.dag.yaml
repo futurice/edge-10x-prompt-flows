@@ -6,7 +6,7 @@ inputs:
 outputs:
   answer:
     type: string
-    reference: ${research_assistant.output}
+    reference: ${search_question.output}
 nodes:
 - name: QUESTION_EXPANDER
   type: llm
