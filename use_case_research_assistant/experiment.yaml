@@ -11,7 +11,7 @@ connections:
 
 datasets:
 - name: research_assistant_training
-  source: data/sample_data.json
+  source: data/sample_data.jsonl
   description: "This dataset is for prompt experiments."
   mappings:
     question: "${data.question}"
