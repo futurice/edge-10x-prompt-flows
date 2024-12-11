@@ -5,10 +5,10 @@ inputs:
     default: "What's the population of Finland?"
   answer:
     type: string
-    default: "The population of Finland is 5.5 million."
+    default: "hello"
   ground_truth:
     type: string
-    default: '"5.5 million"'
+    default: '"hello"'
 outputs:
   output_answer:
     type: object
