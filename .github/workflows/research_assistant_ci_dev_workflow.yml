@@ -1,4 +1,4 @@
-name: math_coding_ci_dev_workflow
+name: research_assistant_ci_dev_workflow
 
 on:
   workflow_call:

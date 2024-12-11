@@ -1,4 +1,4 @@
-name: math_coding_pr_dev_workflow
+name: research_assistant_pr_dev_workflow
 
 on:
   workflow_call:
@@ -18,7 +18,7 @@ on:
       - main
       - development
     paths:
-      - 'math_coding/**'
+      - 'use_case_research_assistant/**'
       - '.github/**'
       - 'llmops/**'
 
