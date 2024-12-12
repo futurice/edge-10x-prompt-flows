@@ -1,0 +1,32 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+inputs:
+  question:
+    type: string
+    default: What's the population of Finland?
+outputs:
+  answer:
+    type: string
+    reference: ${search_question.output}
+nodes:
+- name: QUESTION_EXPANDER
+  type: llm
+  source:
+    type: code
+    path: QUESTION_EXPANDER.jinja2
+  inputs:
+    deployment_name: gpt-35-turbo
+    max_tokens: 64
+    question: ${inputs.question}
+  provider: AzureOpenAI
+  connection: aoai
+  api: chat
+  module: promptflow.tools.aoai
+- name: search_question
+  type: python
+  source:
+    type: code
+    path: search_question.py
+  inputs:
+    question: ${QUESTION_EXPANDER.output}
+environment:
+  python_requirements_txt: requirements.txt

@@ -1,0 +1,15 @@
+[project]
+name = "edge-10x-prompt-flows"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jinja2>=3.1.4",
+    "promptflow-azure>=1.16.2",
+    "promptflow>=1.16.2",
+    "promptflow-sdk>=0.0.1",
+    "promptflow-tools>=1.4.0",
+    "openai>=1.56.2",
+    "python-dotenv>=1.0.1",
+]

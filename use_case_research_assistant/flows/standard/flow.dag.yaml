@@ -2,31 +2,62 @@ $schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
 inputs:
   question:
     type: string
-    default: What's the population of Finland?
-outputs:
-  answer:
+    default: "What are some generative ai products?"
+  company_name:
     type: string
-    reference: ${search_question.output}
+    default: "Microsoft"
+  website_filters:
+    type: list
+    default: ["www.microsoft.com", "www.learn.microsoft.com"]
+outputs:
+  answers:
+    type: list
+    reference: ${make_google_search_queries.output}
 nodes:
-- name: QUESTION_EXPANDER
+- name: QUESTION_REFORMULATION
   type: llm
   source:
     type: code
-    path: QUESTION_EXPANDER.jinja2
+    path: QUESTION_REFORMULATION_1.jinja2
   inputs:
-    deployment_name: gpt-35-turbo
-    max_tokens: 64
+    deployment_name: gpt-4o
+    max_tokens: 1000
     question: ${inputs.question}
+    company_name: ${inputs.company_name}
+    response_format: {"type": "json_object"}
   provider: AzureOpenAI
   connection: aoai
   api: chat
   module: promptflow.tools.aoai
-- name: search_question
+  variants:
+    variant_0:
+      source:
+        type: code
+        path: QUESTION_REFORMULATION_1.jinja2
+    variant_1:
+      source:
+        type: code
+        path: QUESTION_REFORMULATION_2.jinja2
+    variant_2:
+      source:
+        type: code 
+        path: QUESTION_REFORMULATION_3.jinja2
+      inputs:
+        temperature: 0.7
+    variant_3:
+      source:
+        type: code
+        path: QUESTION_REFORMULATION_4.jinja2
+      inputs:
+        temperature: 0.3
+- name: make_google_search_queries
   type: python
   source:
     type: code
-    path: search_question.py
+    path: make_google_search_queries.py
   inputs:
-    question: ${QUESTION_EXPANDER.output}
+    reformulated_questions: ${QUESTION_REFORMULATION.output}
+    company_name: ${inputs.company_name}
+    website_filters: ${inputs.website_filters}
 environment:
   python_requirements_txt: requirements.txt

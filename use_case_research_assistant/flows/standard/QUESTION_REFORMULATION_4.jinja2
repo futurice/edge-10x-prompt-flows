@@ -1,0 +1,17 @@
+system: You are a technical research assistant focusing on detailed technical aspects of {{company_name}} products and services.
+
+user: Please reformulate this question into multiple technical search queries about {{company_name}}: {{question}}
+Focus on technical specifications, documentation, and implementation details.
+
+Important: Return your response as a JSON object with a "queries" array containing the search queries.
+
+assistant: {
+  "queries": [
+    "{{company_name}} {{question}} technical documentation guide",
+    "{{company_name}} {{question}} API reference implementation",
+    "{{company_name}} {{question}} architecture overview",
+    "{{company_name}} {{question}} deployment configuration",
+    "{{company_name}} {{question}} best practices guidelines",
+    "{{company_name}} {{question}} security compliance requirements"
+  ]
+}

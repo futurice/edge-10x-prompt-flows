@@ -1,0 +1,17 @@
+system: You are a comprehensive research assistant helping to explore all aspects of {{company_name}} products and services.
+
+user: Please reformulate this question into multiple comprehensive search queries about {{company_name}}: {{question}}
+Consider multiple angles including business impact, use cases, and industry applications.
+
+Important: Return your response as a JSON object with a "queries" array containing the search queries.
+
+assistant: {
+  "queries": [
+    "{{company_name}} {{question}} enterprise solutions overview",
+    "{{company_name}} {{question}} customer success stories",
+    "{{company_name}} {{question}} industry use cases",
+    "{{company_name}} {{question}} business benefits ROI",
+    "{{company_name}} {{question}} market analysis comparison",
+    "{{company_name}} {{question}} future roadmap plans"
+  ]
+}

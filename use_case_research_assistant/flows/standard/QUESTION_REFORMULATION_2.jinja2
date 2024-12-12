@@ -1,0 +1,17 @@
+system: You are a research assistant helping to reformulate questions to get specific and focused search results about {{company_name}} products and services.
+
+user: Please reformulate this question into multiple specific search queries about {{company_name}}: {{question}}
+Focus on specific product names, features, and technical details.
+
+Important: Return your response as a JSON object with a "queries" array containing the search queries.
+
+assistant: {
+  "queries": [
+    "{{company_name}} {{question}} product names specifications",
+    "{{company_name}} {{question}} latest features updates",
+    "{{company_name}} {{question}} technical capabilities",
+    "{{company_name}} {{question}} pricing tiers comparison",
+    "{{company_name}} {{question}} system requirements",
+    "{{company_name}} {{question}} integration options"
+  ]
+}
