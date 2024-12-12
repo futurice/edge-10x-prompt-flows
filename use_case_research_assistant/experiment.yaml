@@ -25,7 +25,7 @@ evaluators:
   datasets:
   - name: research_assistant_test_new
     reference: research_assistant_new_training
-    source: eval_data.jsonl
+    source: eval_data_new.jsonl
     description: "This dataset is for evaluating flows."
     mappings:
       groundtruth: "${data.answers}"
