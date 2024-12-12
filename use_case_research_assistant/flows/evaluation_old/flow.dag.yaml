@@ -2,16 +2,16 @@ $schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
 inputs:
   question:
     type: string
-    default: "What are some generative ai products?"
-  company_name:
+    default: "What's the population of Finland?"
+  answer:
     type: string
-    default: "Microsoft"
-  website_filters:
-    type: list
-    default: ["www.microsoft.com", "www.learn.microsoft.com"]
+    default: "hello"
+  ground_truth:
+    type: string
+    default: '"hello"'
 outputs:
-  answers:
-    type: list
+  output_answer:
+    type: object
     reference: ${search_question.output}
 nodes:
 - name: search_question
